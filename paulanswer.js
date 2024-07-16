@@ -66,20 +66,7 @@ function modifyExistingTask() {
     console.log("Task modified");
 }
 
-function deleteTask(todos, id) {
-    let indexToDelete = null;
-    for (let i = 0; i < todos.length; i++) {
-        if (todos[i].id == id) {
-            indexToDelete = i;
-            break;
-        }
-    }
-    if (indexToDelete !== null) {
-        todos.splice(indexToDelete, 1);
-    } else {
-        console.log("Task is not found");
-    }
-}
+
 
 function deleteTaskInterface() {
     let id = parseInt(prompt("Enter the task ID to delete: "));
@@ -109,6 +96,23 @@ function modifyTask(todos, id, newTaskName, newUrgency) {
     }
     if (task) {
         task.name = newTaskName;
+    } else {
+        console.log("Task is not found");
+    }
+} //todo we are not using the newUrgency parameter
+
+function deleteTaskModeling(todos, id) {
+    let indexToDelete = null;
+    for (let i = 0; i < todos.length; i++) {
+        if (todos[i].id == id) {
+            indexToDelete = i;
+            break;
+        }
+
+        
+    }
+    if (indexToDelete !== null) {
+        todos.splice(indexToDelete, 1);
     } else {
         console.log("Task is not found");
     }
