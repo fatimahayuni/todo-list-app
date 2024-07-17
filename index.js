@@ -58,7 +58,7 @@ function showAllTasksInterface() {
 function addTaskInterface() {
     let name = prompt("Enter the name of the task: ");
     let urgency = parseInt(prompt("Enter the urgency (1-5): "));
-    addTodoModeling(todos, name, urgency);
+    addTodoModeling(todos, name, urgency); //todo change var name to addTaskModeling
     console.log();
     console.log("Task added successfully!");
 }
@@ -89,7 +89,7 @@ function addTodoModeling(todos, name, urgency) {
     todos.push(newTodo);
 }
 
-
+// use updateUrgency
 function modifyTaskModeling(todos, id, updateTaskName, updateUrgency) {
     let task = null;
 
@@ -97,14 +97,16 @@ function modifyTaskModeling(todos, id, updateTaskName, updateUrgency) {
     for (let t of todos) {
         if (t.id == id){
             task = t;
-        } //todo understand how to read object from its value. t.id is nameofObject.key
+        } 
         
     }
     if (task) {
         task.name = updateTaskName
+        task.urgency = updateUrgency
     } else {
         console.log("Task is not found");
     }
+
 }
 
 function deleteTaskModeling(todos,id) {
