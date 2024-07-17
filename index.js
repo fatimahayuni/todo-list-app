@@ -4,13 +4,12 @@ let todos = [];
 
 
 function App() {
-    showMenu();
-    getUserInput();
-
-    const userChoice = getUserInput();
-
-    running = true;
+    let running = true;
     while (running) {
+        showMenu();
+
+        const userChoice = getUserInput();
+
         if (userChoice === "1") {
             showAllTasksInterface();
         } else if (userChoice === "2") {
@@ -29,32 +28,56 @@ function App() {
 }
 
 function showMenu() {
-    pass
-}
-
+    console.log();
+    console.log("===== Todo List Menu =====");
+    console.log("1. Show all tasks");
+    console.log("2. Add a new task");
+    console.log("3. Modify an existing task");
+    console.log("4. Delete a task");
+    console.log("5. Exit");
+  }
+  
 function getUserInput() {
-    pass
+    console.log();
+    return prompt("Enter your choice: ")
 }
 
-// The 4 CRUD features of the app
+// The interfaces of the 4 CRUD features
+
 function showAllTasksInterface() {
-    pass
+    if (todos.length === 0) {
+        console.log("There are no tasks to display.");
+        return
+    }
+    console.log("==== TASKS ====");
+    for (let task of todos) {
+        console.log(`ID: ${task.id}, Name: ${task.name}, Urgency: ${task.urgency}`);
+    }
 }
 
 function addTaskInterface() {
-    pass
+    let name = prompt("Enter the name of the task: ");
+    let urgency = parseInt(prompt("Enter the urgency (1-5): "));
+    addTodoModeling(todos, name, urgency);
+    console.log();
+    console.log("Task added successfully!");
 }
 
 function modifyTaskInterface() {
-    pass
+    let id = parseInt(prompt("Enter the task ID to modify: "));
+    let updateTaskName = prompt("Enter the new name for the task: ");
+    let updateUrgency = parseInt(prompt("Enter the new urgency (1-5): "));
+    modifyTaskModeling(todos, id, updateTaskName, updateUrgency);
+    console.log("Task updated successfully!");
 }
 
 function deleteTaskInterface() {
-    pass
+    let id = parseInt(prompt("Enter the task ID to delete: "));
+    deleteTaskModeling(todos, id);
+    console.log("Task deleted successfully!");
 }
 
-
-
+// =============================================
 // The data modeling of each task object. 
 function addTodoModeling(todos, name, urgency) {
     let newTodo = {
@@ -68,12 +91,14 @@ function addTodoModeling(todos, name, urgency) {
 
 
 function modifyTaskModeling(todos, id, updateTaskName, updateUrgency) {
-    task = null;
+    let task = null;
 
     // Look for the id in the todos array
     for (let t of todos) {
-        if (t.id == id); //todo understand how to read object from its value. t.id is nameofObject.key
-        task = t;
+        if (t.id == id){
+            task = t;
+        } //todo understand how to read object from its value. t.id is nameofObject.key
+        
     }
     if (task) {
         task.name = updateTaskName
@@ -91,14 +116,11 @@ function deleteTaskModeling(todos,id) {
             break
         }
     }
-
     if (indexToDelete !== null) {
         todos.splice(indexToDelete, 1)
     } else {
         console.log("Task is not found.");
     }
-
-
 }
 
 App()

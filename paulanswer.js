@@ -40,6 +40,7 @@ function getUserInput() {
     return prompt("Enter your choice: ");
 }
 
+// The 4 CRUD features of the app
 function showAllTasks() {
     if (todos.length === 0) {
         console.log("There are no tasks to display.");
@@ -66,13 +67,14 @@ function modifyExistingTask() {
     console.log("Task modified");
 }
 
-
-
 function deleteTaskInterface() {
     let id = parseInt(prompt("Enter the task ID to delete: "));
     deleteTask(todos, id);
     console.log("Task deleted successfully!");
 }
+
+
+// The data modeling of each task object. 
 
 function addTodo(todos, name, urgency) {
     // declare an object called newTodo
@@ -101,15 +103,13 @@ function modifyTask(todos, id, newTaskName, newUrgency) {
     }
 } //todo we are not using the newUrgency parameter
 
-function deleteTaskModeling(todos, id) {
+function deleteTask(todos, id) {
     let indexToDelete = null;
     for (let i = 0; i < todos.length; i++) {
         if (todos[i].id == id) {
             indexToDelete = i;
             break;
         }
-
-        
     }
     if (indexToDelete !== null) {
         todos.splice(indexToDelete, 1);
