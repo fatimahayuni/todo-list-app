@@ -79,50 +79,50 @@ function deleteTaskInterface() {
 
 // =============================================
 // The data modeling of each task object. 
-function addTodoModeling(todos, name, urgency) {
-    let newTodo = {
-        id: Math.floor(Math.random() * 1000 + 1),
-        name: name,
-        urgency: urgency
-    }
+// function addTodoModeling(todos, name, urgency) {
+//     let newTodo = {
+//         id: Math.floor(Math.random() * 1000 + 1),
+//         name: name,
+//         urgency: urgency
+//     }
 
-    todos.push(newTodo);
-}
+//     todos.push(newTodo);
+// }
 
-// use updateUrgency
-function modifyTaskModeling(todos, id, updateTaskName, updateUrgency) {
-    let task = null;
+// // use updateUrgency
+// function modifyTaskModeling(todos, id, updateTaskName, updateUrgency) {
+//     let task = null;
 
-    // Look for the id in the todos array
-    for (let t of todos) {
-        if (t.id == id){
-            task = t;
-        } 
+//     // Look for the id in the todos array
+//     for (let t of todos) {
+//         if (t.id == id){
+//             task = t;
+//         } 
         
-    }
-    if (task) {
-        task.name = updateTaskName
-        task.urgency = updateUrgency
-    } else {
-        console.log("Task is not found");
-    }
+//     }
+//     if (task) {
+//         task.name = updateTaskName
+//         task.urgency = updateUrgency
+//     } else {
+//         console.log("Task is not found");
+//     }
 
-}
+// }
 
-function deleteTaskModeling(todos,id) {
-    let indexToDelete = null;
+// function deleteTaskModeling(todos,id) {
+//     let indexToDelete = null;
 
-    for (let i = 0; i < todos.length; i++) {
-        if (todos[i].id == id) {
-            indexToDelete = i;
-            break
-        }
-    }
-    if (indexToDelete !== null) {
-        todos.splice(indexToDelete, 1)
-    } else {
-        console.log("Task is not found.");
-    }
-}
+//     for (let i = 0; i < todos.length; i++) {
+//         if (todos[i].id == id) {
+//             indexToDelete = i;
+//             break
+//         }
+//     }
+//     if (indexToDelete !== null) {
+//         todos.splice(indexToDelete, 1)
+//     } else {
+//         console.log("Task is not found.");
+//     }
+// }
 
 App()
